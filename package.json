@@ -1,0 +1,10 @@
+{
+  "name": "convite-luiza",
+  "version": "1.0.0",
+  "description": "Convite mágico de aniversário da Luizza - Tema Rapunzel",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}

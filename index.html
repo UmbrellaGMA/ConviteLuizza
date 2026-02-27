@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convite de Aniversário da Luizza - Tema Rapunzel">
+  <title>Convite Mágico - Luizza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===== VIDEO BACKGROUND (global) ===== -->
+  <div class="video-bg" aria-hidden="true">
+    <video
+      id="bg-video"
+      class="video-bg__video"
+      src="video.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    ></video>
+    <div class="video-bg__overlay"></div>
+  </div>
+
+  <!-- Mute / Unmute button -->
+  <button
+    class="btn-mute"
+    id="btn-mute"
+    type="button"
+    aria-label="Ativar som do vídeo"
+    title="Ativar/Silenciar som"
+  >
+    <svg class="btn-mute__icon btn-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="btn-mute__icon btn-mute__icon--playing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+
+  <!-- ===== SCENE 1: ENVELOPE INTRO ===== -->
+  <section id="envelope-scene" class="scene scene--envelope" aria-label="Envelope mágico do convite">
+    <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Scenic background elements -->
+    <div class="scene-bg" aria-hidden="true">
+      <!-- Moon -->
+      <div class="moon">
+        <div class="moon__glow"></div>
+      </div>
+
+      <!-- Stars -->
+      <div class="stars">
+        <div class="star star--1"></div>
+        <div class="star star--2"></div>
+        <div class="star star--3"></div>
+        <div class="star star--4"></div>
+        <div class="star star--5"></div>
+        <div class="star star--6"></div>
+        <div class="star star--7"></div>
+        <div class="star star--8"></div>
+        <div class="star star--9"></div>
+        <div class="star star--10"></div>
+        <div class="star star--11"></div>
+        <div class="star star--12"></div>
+      </div>
+
+      <!-- Castle silhouette -->
+      <div class="castle">
+        <div class="castle__tower castle__tower--left">
+          <div class="castle__turret"></div>
+          <div class="castle__window"></div>
+          <div class="castle__window castle__window--lower"></div>
+        </div>
+        <div class="castle__main">
+          <div class="castle__battlement"></div>
+          <div class="castle__gate"></div>
+          <div class="castle__window castle__window--main"></div>
+          <div class="castle__window castle__window--main castle__window--main-r"></div>
+        </div>
+        <div class="castle__tower castle__tower--right">
+          <div class="castle__turret"></div>
+          <div class="castle__window"></div>
+          <div class="castle__window castle__window--lower"></div>
+        </div>
+        <div class="castle__tower castle__tower--far-left">
+          <div class="castle__turret castle__turret--small"></div>
+        </div>
+        <div class="castle__tower castle__tower--far-right">
+          <div class="castle__turret castle__turret--small"></div>
+        </div>
+      </div>
+
+      <!-- Rapunzel tower -->
+      <div class="rapunzel-tower">
+        <div class="rapunzel-tower__roof"></div>
+        <div class="rapunzel-tower__body">
+          <div class="rapunzel-tower__window">
+            <div class="rapunzel-tower__light"></div>
+          </div>
+          <div class="rapunzel-tower__bricks"></div>
+        </div>
+        <div class="rapunzel-tower__base"></div>
+        <div class="rapunzel-tower__hair"></div>
+      </div>
+
+      <!-- Hills / ground -->
+      <div class="hills">
+        <div class="hill hill--1"></div>
+        <div class="hill hill--2"></div>
+        <div class="hill hill--3"></div>
+      </div>
+
+      <!-- Floating lanterns in scene -->
+      <div class="scene-lantern scene-lantern--1"></div>
+      <div class="scene-lantern scene-lantern--2"></div>
+      <div class="scene-lantern scene-lantern--3"></div>
+      <div class="scene-lantern scene-lantern--4"></div>
+      <div class="scene-lantern scene-lantern--5"></div>
+      <div class="scene-lantern scene-lantern--6"></div>
+    </div>
+
+    <div class="envelope-wrapper">
+      <p class="envelope-hint" aria-live="polite">Toque para abrir</p>
+
+      <button
+        class="envelope"
+        id="envelope-btn"
+        aria-label="Abrir o convite mágico"
+        type="button"
+      >
+        <!-- Envelope back (visible behind flap) -->
+        <div class="envelope__back"></div>
+
+        <!-- Inner liner -->
+        <div class="envelope__liner"></div>
+
+        <!-- Card peek inside -->
+        <div class="envelope__card-peek"></div>
+
+        <!-- Envelope body -->
+        <div class="envelope__body">
+          <div class="envelope__front">
+            <div class="envelope__texture"></div>
+            <div class="envelope__fold-left"></div>
+            <div class="envelope__fold-right"></div>
+            <div class="envelope__bottom-fold"></div>
+          </div>
+          <div class="envelope__flap">
+            <div class="envelope__flap-inner"></div>
+          </div>
+          <div class="envelope__shadow"></div>
+        </div>
+
+        <!-- Gold trim -->
+        <div class="envelope__trim" aria-hidden="true"></div>
+
+        <!-- Wax seal -->
+        <div class="envelope__seal" aria-hidden="true">
+          <div class="envelope__seal-texture"></div>
+          <span class="envelope__seal-letter">L</span>
+          <div class="envelope__seal-ring"></div>
+        </div>
+      </button>
+    </div>
+
+    <!-- Light burst overlay -->
+    <div class="light-burst" id="light-burst" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== SCENE 2: INVITATION CARD ===== -->
+  <main id="invitation-scene" class="scene scene--invitation" aria-label="Convite de aniversário" hidden>
+    <canvas id="sparkle-canvas-2" aria-hidden="true"></canvas>
+
+    <!-- Floating lanterns -->
+    <div class="lanterns" aria-hidden="true">
+      <div class="lantern lantern--1"></div>
+      <div class="lantern lantern--2"></div>
+      <div class="lantern lantern--3"></div>
+      <div class="lantern lantern--4"></div>
+      <div class="lantern lantern--5"></div>
+    </div>
+
+    <div class="invitation-card" id="invitation-card">
+      <!-- Gold ornamental border -->
+      <div class="card__border" aria-hidden="true"></div>
+
+      <!-- Header -->
+      <header class="card__header fade-section">
+        <div class="card__ornament card__ornament--top" aria-hidden="true">✦</div>
+        <h1 class="card__title">Você está convidada para um dia mágico!</h1>
+        <div class="card__divider" aria-hidden="true"></div>
+      </header>
+
+      <!-- Birthday name -->
+      <section class="card__name-section fade-section">
+        <h2 class="card__name">Luizza</h2>
+        <p class="card__subtitle">faz aniversário!</p>
+      </section>
+
+      <!-- Main message -->
+      <section class="card__message fade-section" aria-label="Mensagem do convite">
+        <p class="card__text">
+          Em um reino encantado, onde sonhos cintilam como fios de ouro
+          e a magia floresce em cada pétala lilás, uma princesa muito especial
+          se prepara para celebrar mais um capítulo de sua história.
+        </p>
+        <p class="card__text">
+          Assim como Rapunzel descobriu que a verdadeira magia está nas pessoas
+          que amamos, convidamos você para iluminar este dia com sua presença
+          e fazer parte deste conto de fadas.
+        </p>
+        <p class="card__text card__text--highlight">
+          Venha celebrar conosco o aniversário da nossa princesa Luizza!
+        </p>
+      </section>
+
+      <!-- Date section -->
+      <section class="card__details fade-section" aria-label="Detalhes do evento">
+        <div class="card__detail-item">
+          <span class="card__detail-icon" aria-hidden="true">📅</span>
+          <h3 class="card__detail-label">Data</h3>
+          <p class="card__detail-value">13 de Março de 2025</p>
+        </div>
+        <div class="card__detail-divider" aria-hidden="true"></div>
+        <div class="card__detail-item">
+          <span class="card__detail-icon" aria-hidden="true">🕐</span>
+          <h3 class="card__detail-label">Horário</h3>
+          <p class="card__detail-value">20:00hrs</p>
+        </div>
+        <div class="card__detail-divider" aria-hidden="true"></div>
+        <div class="card__detail-item">
+          <span class="card__detail-icon" aria-hidden="true">📍</span>
+          <h3 class="card__detail-label">Local</h3>
+          <p class="card__detail-value">Buffet Maison Royale</p>
+        </div>
+      </section>
+
+      <!-- Venue / Map section -->
+      <section class="card__venue fade-section" aria-label="Localização do evento">
+        <h2 class="card__section-title">Localização</h2>
+        <div class="venue__info">
+          <p class="venue__name">Buffet Maison Royale</p>
+          <p class="venue__address">Av. Bartholomeu de Gusmão, 70 - Embaré, Santos - SP, 11045-401</p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Av.+Bartholomeu+de+Gusmão,+70+-+Embaré,+Santos+-+SP,+11045-401"
+            class="venue__directions-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir rotas no Google Maps"
+          >
+            <span aria-hidden="true">📍</span> Ver no Google Maps
+          </a>
+        </div>
+        <div class="venue__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.8!2d-46.3388!3d-23.9778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQXYuIEJhcnRob2xvbWV1IGRlIEd1c23Do28sIDcwIC0gRW1iYXLDqSwgU2FudG9zIC0gU1A!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+            width="100%"
+            height="250"
+            style="border:0; border-radius: 12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa - Buffet Maison Royale"
+          ></iframe>
+        </div>
+      </section>
+
+      <div class="card__divider-full fade-section" aria-hidden="true"></div>
+
+      <!-- Gift list section (opens modal) -->
+      <section class="card__gifts fade-section" aria-label="Lista de presentes">
+        <h2 class="card__section-title">Lista de Presentes</h2>
+        <button
+          type="button"
+          class="gifts__open-btn"
+          id="gifts-open-btn"
+          aria-haspopup="dialog"
+          aria-label="Ver lista de presentes"
+        >
+          <span aria-hidden="true">🎁</span> Ver Sugestões de Presentes
+        </button>
+      </section>
+
+      <div class="card__divider-full fade-section" aria-hidden="true"></div>
+
+      <!-- RSVP Form -->
+      <section class="card__rsvp fade-section" aria-label="Confirmar presença">
+        <h2 class="card__section-title">Confirmar Presença</h2>
+        <p class="card__rsvp-text">Preencha seus dados para confirmar!</p>
+
+        <form class="rsvp-form" id="rsvp-form" aria-label="Formulário de confirmação de presença">
+          <!-- Main guest -->
+          <fieldset class="rsvp-form__fieldset">
+            <legend class="rsvp-form__legend">Seus dados</legend>
+            <div class="rsvp-form__row">
+              <div class="rsvp-form__field rsvp-form__field--name">
+                <label for="guest-name" class="rsvp-form__label">Nome</label>
+                <input
+                  type="text"
+                  id="guest-name"
+                  class="rsvp-form__input"
+                  placeholder="Seu nome completo"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="rsvp-form__field rsvp-form__field--age">
+                <label for="guest-age" class="rsvp-form__label">Idade</label>
+                <input
+                  type="number"
+                  id="guest-age"
+                  class="rsvp-form__input"
+                  placeholder="Idade"
+                  min="0"
+                  max="120"
+                  required
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Companions -->
+          <fieldset class="rsvp-form__fieldset rsvp-form__companions">
+            <legend class="rsvp-form__legend">Acompanhantes</legend>
+
+            <div id="companions-list" class="rsvp-form__companions-list">
+              <!-- Companion entries will be added here by JS -->
+            </div>
+
+            <button
+              type="button"
+              class="rsvp-form__add-btn"
+              id="add-companion-btn"
+              aria-label="Adicionar acompanhante"
+            >
+              <span aria-hidden="true">+</span> Adicionar acompanhante
+            </button>
+          </fieldset>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-rsvp" aria-label="Enviar confirmação via WhatsApp">
+            <span class="btn-rsvp__icon" aria-hidden="true">💬</span>
+            Confirmar Presença
+          </button>
+
+          <button
+            type="button"
+            class="btn-decline"
+            id="btn-decline"
+            aria-label="Informar que não poderá ir"
+          >
+            Não vou poder ir
+          </button>
+        </form>
+      </section>
+
+      <!-- Footer -->
+      <footer class="card__footer fade-section">
+        <div class="card__ornament card__ornament--bottom" aria-hidden="true">✦</div>
+        <p class="card__footer-text">Com carinho e magia ✨</p>
+      </footer>
+    </div>
+
+    <!-- Gift List Modal -->
+    <div class="modal-overlay" id="gifts-modal" role="dialog" aria-modal="true" aria-label="Lista de presentes" hidden>
+      <div class="modal">
+        <button class="modal__close" id="gifts-modal-close" type="button" aria-label="Fechar">&times;</button>
+        <h2 class="modal__title">Sugestões de Presentes</h2>
+        <div class="modal__divider"></div>
+        <ul class="modal__list">
+          <li class="modal__item">
+            <span class="modal__item-name">Roupa</span>
+            <span class="modal__item-detail">Tamanho 14</span>
+          </li>
+          <li class="modal__item">
+            <span class="modal__item-name">Sapato</span>
+            <span class="modal__item-detail">N. 35</span>
+          </li>
+          <li class="modal__item">
+            <span class="modal__item-name">Presentes de sua preferência</span>
+            <span class="modal__item-detail"></span>
+          </li>
+        </ul>
+        <p class="modal__footer-text">Qualquer presente será recebido com muito carinho!</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
