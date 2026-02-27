@@ -425,7 +425,7 @@
       });
 
       // Build personalized message
-      let message = `Olá! Estou confirmando presença no aniversário da Luizza dia 13/03/2025.\n\n`;
+      let message = `Olá! Estou confirmando presença no aniversário da Luizza dia 13/03/2026.\n\n`;
       message += `*Convidado(a) principal:*\n`;
       message += `Nome: ${guestName}\n`;
       message += `Idade: ${guestAge} anos\n`;
@@ -447,7 +447,7 @@
 
     _handleDecline() {
       const guestName = document.getElementById('guest-name').value.trim() || 'Convidado';
-      const message = `Olá! Infelizmente não vou poder ir ao aniversário da Luizza dia 13/03/2025.\n\nNome: ${guestName}\n\nDesejo muitas felicidades!`;
+      const message = `Olá! Infelizmente não vou poder ir ao aniversário da Luizza dia 13/03/2026.\n\nNome: ${guestName}\n\nDesejo muitas felicidades!`;
       const encoded = encodeURIComponent(message);
       const url = `https://wa.me/${this.WHATSAPP_NUMBER}?text=${encoded}`;
       window.open(url, '_blank', 'noopener,noreferrer');
