@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +9,33 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <!-- ===== VIDEO BACKGROUND (global) ===== -->
   <div class="video-bg" aria-hidden="true">
-    <video
-      id="bg-video"
-      class="video-bg__video"
-      src="video.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    ></video>
+    <video id="bg-video" class="video-bg__video" src="video.mp4" autoplay muted loop playsinline preload="auto"></video>
     <div class="video-bg__overlay"></div>
   </div>
 
   <!-- Mute / Unmute button -->
-  <button
-    class="btn-mute"
-    id="btn-mute"
-    type="button"
-    aria-label="Ativar som do vídeo"
-    title="Ativar/Silenciar som"
-  >
-    <svg class="btn-mute__icon btn-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-      <line x1="23" y1="9" x2="17" y2="15"/>
-      <line x1="17" y1="9" x2="23" y2="15"/>
+  <button class="btn-mute" id="btn-mute" type="button" aria-label="Ativar som do vídeo" title="Ativar/Silenciar som">
+    <svg class="btn-mute__icon btn-mute__icon--muted" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <line x1="23" y1="9" x2="17" y2="15" />
+      <line x1="17" y1="9" x2="23" y2="15" />
     </svg>
-    <svg class="btn-mute__icon btn-mute__icon--playing" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="display:none">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    <svg class="btn-mute__icon btn-mute__icon--playing" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
     </svg>
   </button>
 
@@ -133,12 +124,7 @@
     <div class="envelope-wrapper">
       <p class="envelope-hint" aria-live="polite">Toque para abrir</p>
 
-      <button
-        class="envelope"
-        id="envelope-btn"
-        aria-label="Abrir o convite mágico"
-        type="button"
-      >
+      <button class="envelope" id="envelope-btn" aria-label="Abrir o convite mágico" type="button">
         <!-- Envelope back (visible behind flap) -->
         <div class="envelope__back"></div>
 
@@ -236,7 +222,7 @@
         <div class="card__detail-item">
           <span class="card__detail-icon" aria-hidden="true">🕐</span>
           <h3 class="card__detail-label">Horário</h3>
-          <p class="card__detail-value">20:00hrs</p>
+          <p class="card__detail-value">20:30 as 3:00hrs</p>
         </div>
         <div class="card__detail-divider" aria-hidden="true"></div>
         <div class="card__detail-item">
@@ -252,27 +238,17 @@
         <div class="venue__info">
           <p class="venue__name">Buffet Maison Royale</p>
           <p class="venue__address">Av. Bartholomeu de Gusmão, 70 - Embaré, Santos - SP, 11045-401</p>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Av.+Bartholomeu+de+Gusmão,+70+-+Embaré,+Santos+-+SP,+11045-401"
-            class="venue__directions-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir rotas no Google Maps"
-          >
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Bartholomeu+de+Gusmão,+70+-+Embaré,+Santos+-+SP,+11045-401"
+            class="venue__directions-link" target="_blank" rel="noopener noreferrer"
+            aria-label="Abrir rotas no Google Maps">
             <span aria-hidden="true">📍</span> Ver no Google Maps
           </a>
         </div>
         <div class="venue__map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.8!2d-46.3388!3d-23.9778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQXYuIEJhcnRob2xvbWV1IGRlIEd1c23Do28sIDcwIC0gRW1iYXLDqSwgU2FudG9zIC0gU1A!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
-            width="100%"
-            height="250"
-            style="border:0; border-radius: 12px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa - Buffet Maison Royale"
-          ></iframe>
+            width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Mapa - Buffet Maison Royale"></iframe>
         </div>
       </section>
 
@@ -281,13 +257,8 @@
       <!-- Gift list section (opens modal) -->
       <section class="card__gifts fade-section" aria-label="Lista de presentes">
         <h2 class="card__section-title">Lista de Presentes</h2>
-        <button
-          type="button"
-          class="gifts__open-btn"
-          id="gifts-open-btn"
-          aria-haspopup="dialog"
-          aria-label="Ver lista de presentes"
-        >
+        <button type="button" class="gifts__open-btn" id="gifts-open-btn" aria-haspopup="dialog"
+          aria-label="Ver lista de presentes">
           <span aria-hidden="true">🎁</span> Ver Sugestões de Presentes
         </button>
       </section>
@@ -306,26 +277,13 @@
             <div class="rsvp-form__row">
               <div class="rsvp-form__field rsvp-form__field--name">
                 <label for="guest-name" class="rsvp-form__label">Nome</label>
-                <input
-                  type="text"
-                  id="guest-name"
-                  class="rsvp-form__input"
-                  placeholder="Seu nome completo"
-                  required
-                  autocomplete="name"
-                />
+                <input type="text" id="guest-name" class="rsvp-form__input" placeholder="Seu nome completo" required
+                  autocomplete="name" />
               </div>
               <div class="rsvp-form__field rsvp-form__field--age">
                 <label for="guest-age" class="rsvp-form__label">Idade</label>
-                <input
-                  type="number"
-                  id="guest-age"
-                  class="rsvp-form__input"
-                  placeholder="Idade"
-                  min="0"
-                  max="120"
-                  required
-                />
+                <input type="number" id="guest-age" class="rsvp-form__input" placeholder="Idade" min="0" max="120"
+                  required />
               </div>
             </div>
           </fieldset>
@@ -338,12 +296,7 @@
               <!-- Companion entries will be added here by JS -->
             </div>
 
-            <button
-              type="button"
-              class="rsvp-form__add-btn"
-              id="add-companion-btn"
-              aria-label="Adicionar acompanhante"
-            >
+            <button type="button" class="rsvp-form__add-btn" id="add-companion-btn" aria-label="Adicionar acompanhante">
               <span aria-hidden="true">+</span> Adicionar acompanhante
             </button>
           </fieldset>
@@ -354,12 +307,7 @@
             Confirmar Presença
           </button>
 
-          <button
-            type="button"
-            class="btn-decline"
-            id="btn-decline"
-            aria-label="Informar que não poderá ir"
-          >
+          <button type="button" class="btn-decline" id="btn-decline" aria-label="Informar que não poderá ir">
             Não vou poder ir
           </button>
         </form>
@@ -399,4 +347,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
